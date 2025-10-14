@@ -85,9 +85,13 @@
 
 {#snippet body()}
 	{#await data}
-		{@html oldOutput}
+		{#if oldOutput}
+			{@html oldOutput}
+		{/if}
 	{:then output}
-		{@html output}
+		{#if output}
+			{@html output}
+		{/if}
 	{/await}
 {/snippet}
 

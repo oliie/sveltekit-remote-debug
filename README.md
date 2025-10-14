@@ -12,17 +12,29 @@ With the remote functions from SvelteKit, the superforms library isn't always ne
 
 ## How to use
 
-First you simply import the debugger in your project together with your remote function
+Install the package
+
+```sh
+npm i -D sveltekit-remote-debug
+```
+
+Then you simply import the debugger in your project together with your remote function
 
 ```ts
 import { RemoteDebug } from 'sveltekit-remote-debug';
-import { MyRemoteFormFunction } from '$lib/remote-functions/my-remote-form-function.ts';
+import { myRemoteFormFunction } from '$lib/remote-functions/my-remote-form-function.ts';
 ```
 
-The `RemoteDebug` takes the form as a property to collect it's data
+The `RemoteDebug` takes the `form` as a property to collect it's data.
+
+> Be sure to also add `oninput` to your form, to debug in real time!
 
 ```html
-<RemoteDebug form="{MyRemoteFormFunction}" />
+<RemoteDebug form="{myRemoteFormFunction}" />
+
+<form {...myRemoteFormFunction} oninput={() => myRemoteFormFunction.validate()}>
+	...
+</form>
 ```
 
 Having this in your code, will show a box with your fields and it's values, such as
