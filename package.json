@@ -1,5 +1,5 @@
 {
-	"name": "remote-debug",
+	"name": "sveltekit-remote-debug",
 	"version": "0.0.1",
 	"private": false,
 	"publishConfig": {
