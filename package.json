@@ -1,6 +1,7 @@
 {
 	"name": "sveltekit-remote-debug",
-	"version": "1.0.2",
+	"description": "This component allows you to debug your remote functions in the style of the sveltekit-superforms library SuperDebug",
+	"version": "1.0.3",
 	"private": false,
 	"scripts": {
 		"dev": "vite dev",
@@ -47,12 +48,17 @@
 		"shiki": "^3.13.0",
 		"svelte": "^5.39.12",
 		"svelte-check": "^4.3.2",
+		"sveltekit-remote-debug": "^1.0.2",
 		"tailwindcss": "^4.1.13",
 		"typescript": "^5.9.2",
 		"vite": "^7.1.7"
 	},
 	"keywords": [
-		"svelte"
+		"svelte",
+		"sveltekit",
+		"remote-functions",
+		"valibot",
+		"validation"
 	],
 	"repository": {
 		"type": "git",
