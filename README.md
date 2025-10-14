@@ -1,58 +1,69 @@
-# Svelte library
+# SvelteKit Remote Debug
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of sveltekit-superforms [SuperDebug](https://www.npmjs.com/package/sveltekit-remote-debug).
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+With the remote functions from SvelteKit, the superforms library isn't always necessary - but still needs a visual debugger when developing.
 
-## Creating a project
+## How to use
 
-If you're seeing this, you've probably already done this step. Congrats!
+First you simply import the debugger in your project together with your remote function
 
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+```ts
+import { RemoteDebug } from 'sveltekit-remote-debug';
+import { MyRemoteFormFunction } from '$lib/remote-functions/my-remote-form-function.ts';
 ```
 
-## Developing
+The `RemoteDebug` takes the form as a property to collect it's data
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```html
+<RemoteDebug form="{MyRemoteFormFunction}" />
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Having this in your code, will show a box with your fields and it's values, such as
 
-## Building
-
-To build your library:
-
-```sh
-npm pack
+```json
+{
+	"firstname": "foo",
+	"lastname": "bar"
+}
 ```
 
-To create a production version of your showcase app:
+### Options
 
-```sh
-npm run build
+```ts
+type Props<T = unknown> = {
+	showIssues?: boolean;
+	windowed?: boolean;
+	theme?: BundledTheme;
+	space?: number;
+};
 ```
 
-You can preview the production build with `npm run preview`.
+#### showIssues
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Enabling this property will also show you a list of all the issues that is generated from your validation schema. This also separates the input data in it's own `data` property.
 
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
+```json
+{
+	"data": {
+		"firstname": undefined,
+		"lastname": "bar"
+	},
+	"issues": {
+		"firstname": ["Firstname is required"],
+		"lastname": undefined
+	}
+}
 ```
+
+#### windowed
+
+Enabling this property will instead make the debugger an absolute div which you can move around. Here you can also minimize it and copy the content (json) from the box.
+
+#### theme
+
+Because of the simplicity with [shiki](https://github.com/shikijs/shiki?tab=readme-ov-file) that this debugger is using for highlighting, you can also change the theme of your output.
+
+#### space
+
+This option takes a number that defines the tab-spacing for each row of your output.
