@@ -2,9 +2,6 @@
 	"name": "sveltekit-remote-debug",
 	"version": "1.0.0",
 	"private": false,
-	"publishConfig": {
-		"access": "restricted"
-	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
