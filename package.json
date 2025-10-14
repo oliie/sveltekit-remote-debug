@@ -1,6 +1,6 @@
 {
 	"name": "sveltekit-remote-debug",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": false,
 	"scripts": {
 		"dev": "vite dev",
@@ -53,5 +53,9 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/oliie/remote-debug.git"
+	}
 }

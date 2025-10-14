@@ -1,6 +1,6 @@
 # SvelteKit Remote Debug
 
-This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of sveltekit-superforms [SuperDebug](https://www.npmjs.com/package/sveltekit-remote-debug).
+This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://www.npmjs.com/package/sveltekit-remote-debug).
 
 With the remote functions from SvelteKit, the superforms library isn't always necessary - but still needs a visual debugger when developing.
 
@@ -31,12 +31,10 @@ Having this in your code, will show a box with your fields and it's values, such
 ### Options
 
 ```ts
-type Props<T = unknown> = {
-	showIssues?: boolean;
-	windowed?: boolean;
-	theme?: BundledTheme;
-	space?: number;
-};
+showIssues?: boolean;
+windowed?: boolean;
+theme?: BundledTheme;
+space?: number;
 ```
 
 #### showIssues
@@ -67,3 +65,7 @@ Because of the simplicity with [shiki](https://github.com/shikijs/shiki?tab=read
 #### space
 
 This option takes a number that defines the tab-spacing for each row of your output.
+
+## Contributing
+
+If you wish for something, please drop an issue and I will look into it ⭐
