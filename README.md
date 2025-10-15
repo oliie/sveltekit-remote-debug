@@ -30,7 +30,7 @@ The `RemoteDebug` takes the `form` as a property to collect it's data.
 > Be sure to also add `oninput` to your form, to debug in real time!
 
 ```html
-<RemoteDebug form="{myRemoteFormFunction}" />
+<RemoteDebug form={myRemoteFormFunction} />
 
 <form {...myRemoteFormFunction} oninput={() => myRemoteFormFunction.validate()}>
 	...
