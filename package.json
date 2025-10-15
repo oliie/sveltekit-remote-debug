@@ -1,7 +1,7 @@
 {
 	"name": "sveltekit-remote-debug",
 	"description": "This component allows you to debug your remote functions in the style of the sveltekit-superforms library SuperDebug",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"private": false,
 	"scripts": {
 		"dev": "vite dev",
@@ -32,7 +32,10 @@
 		}
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^5.0.0",
+		"@sveltejs/kit": "^2.46.5",
+		"shiki": "^3.13.0",
+		"lucide-svelte": "^0.545.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.1.0",
@@ -48,7 +51,6 @@
 		"shiki": "^3.13.0",
 		"svelte": "^5.39.12",
 		"svelte-check": "^4.3.2",
-		"sveltekit-remote-debug": "^1.0.2",
 		"tailwindcss": "^4.1.13",
 		"typescript": "^5.9.2",
 		"vite": "^7.1.7"
