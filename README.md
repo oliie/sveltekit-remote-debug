@@ -6,7 +6,7 @@
 
 # SvelteKit Remote Debug
 
-This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://www.npmjs.com/package/sveltekit-remote-debug).
+This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://superforms.rocks/super-debug).
 
 With the remote functions from SvelteKit, the superforms library isn't always necessary - but still needs a visual debugger when developing.
 
@@ -30,11 +30,9 @@ The `RemoteDebug` takes the `form` as a property to collect it's data.
 > Be sure to also add `oninput` to your form, to debug in real time!
 
 ```html
-<RemoteDebug form={myRemoteFormFunction} />
+<RemoteDebug form="{myRemoteFormFunction}" />
 
-<form {...myRemoteFormFunction} oninput={() => myRemoteFormFunction.validate()}>
-	...
-</form>
+<form {...myRemoteFormFunction} oninput="{()" ="">myRemoteFormFunction.validate()}> ...</form>
 ```
 
 Having this in your code, will show a box with your fields and it's values, such as
