@@ -1,11 +1,10 @@
-<hr />
-
 <p align="center">
   <img src="https://repository-images.githubusercontent.com/1076019570/37b7a1e5-fed9-49cc-9b3d-a7406e611f6b" width="150px" align="center" alt="Superforms logo" />
   <h1 align="center">SvelteKit Remote Debug</h1>
   <p align="center">Making Remote Functions a breeze!</p>
 </p>
 
+<hr />
 
 This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://superforms.rocks/super-debug).
 
