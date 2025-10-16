@@ -6,17 +6,14 @@
 	import { codeToHtml, type BundledTheme } from 'shiki';
 
 	type Props<T = unknown> = {
-		form: RemoteForm<any, T>;
-		id: string | number;
+		form: RemoteForm<any, T> | Omit<RemoteForm<any, T>, 'for'>;
 		showIssues?: boolean;
 		windowed?: boolean;
 		theme?: BundledTheme;
 		space?: number;
 	};
 
-	let { form, id, showIssues, windowed, theme = 'rose-pine', space = 2 }: Props = $props();
-
-	const formTarget = id ? form.for(id) : form;
+	let { form, showIssues, windowed, theme = 'rose-pine', space = 2 }: Props = $props();
 
 	let oldOutput = $state(''); // To prevent flickering when awaiting
 	let dragging = $state(false);
@@ -32,15 +29,14 @@
 		let outputData: Record<string, any> = {};
 
 		if (showIssues) {
-			outputData.data = formTarget.fields.value();
+			outputData.data = form.fields.value();
 			outputData.issues = {};
 
-			Object.keys(formTarget.fields.value()).forEach(
-				(key) =>
-					(outputData.issues[key] = formTarget.fields[key].issues()?.map((issue) => issue.message))
+			Object.keys(form.fields.value()).forEach(
+				(key) => (outputData.issues[key] = form.fields[key].issues()?.map((issue) => issue.message))
 			);
 		} else {
-			outputData = { ...formTarget.fields.value() };
+			outputData = { ...form.fields.value() };
 		}
 
 		const clone = structuredClone(outputData);
