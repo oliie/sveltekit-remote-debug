@@ -4,7 +4,7 @@
   <p align="center">Making Remote Functions a breeze!</p>
 </p>
 
-<hr />
+## What's this?
 
 This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://superforms.rocks/super-debug).
 
