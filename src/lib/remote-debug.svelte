@@ -7,16 +7,18 @@
 
 	type Props<T = unknown> = {
 		form: RemoteForm<any, T>;
+		id: string | number;
 		showIssues?: boolean;
 		windowed?: boolean;
 		theme?: BundledTheme;
 		space?: number;
 	};
 
-	let { form, showIssues, windowed, theme = 'rose-pine', space = 2 }: Props = $props();
+	let { form, id, showIssues, windowed, theme = 'rose-pine', space = 2 }: Props = $props();
 
-	// To prevent flickering when awaiting
-	let oldOutput = $state('');
+	const formTarget = id ? form.for(id) : form;
+
+	let oldOutput = $state(''); // To prevent flickering when awaiting
 	let dragging = $state(false);
 	let minimized = $state(false);
 	let windowFrame: HTMLDivElement | undefined = $state();
@@ -30,14 +32,15 @@
 		let outputData: Record<string, any> = {};
 
 		if (showIssues) {
-			outputData.data = form.fields.value();
+			outputData.data = formTarget.fields.value();
 			outputData.issues = {};
 
-			Object.keys(form.fields.value()).forEach(
-				(key) => (outputData.issues[key] = form.fields[key].issues()?.map((issue) => issue.message))
+			Object.keys(formTarget.fields.value()).forEach(
+				(key) =>
+					(outputData.issues[key] = formTarget.fields[key].issues()?.map((issue) => issue.message))
 			);
 		} else {
-			outputData = { ...form.fields.value() };
+			outputData = { ...formTarget.fields.value() };
 		}
 
 		const clone = structuredClone(outputData);
