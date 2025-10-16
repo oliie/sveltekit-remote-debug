@@ -4,11 +4,13 @@
   <p align="center">Making Remote Functions a breeze!</p>
 </p>
 
-# SvelteKit Remote Debug
-
 This component allows you to debug your [remote functions](https://svelte.dev/docs/kit/remote-functions#form) in the style of the `sveltekit-superforms` library [SuperDebug](https://superforms.rocks/super-debug).
 
 With the remote functions from SvelteKit, the superforms library isn't always necessary - but still needs a visual debugger when developing.
+
+## Limitations Notice
+
+Remote Functions is currently experimental and subject to change. At this stage, it is not possible to collect all fields before they are interacted with. As a result, fields cannot be rendered in advance. This means the debugger will only display fields after they have been touched or once the form has been submitted.
 
 ## How to use
 
