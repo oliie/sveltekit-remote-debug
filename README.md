@@ -36,7 +36,9 @@ The `RemoteDebug` takes the `form` as a property to collect it's data.
 ```html
 <RemoteDebug form="{myRemoteFormFunction}" />
 
-<form {...myRemoteFormFunction} oninput="{()" ="">myRemoteFormFunction.validate()}> ...</form>
+<form {...myRemoteFormFunction} oninput={() => myRemoteFormFunction.validate()}>
+  ...
+</form>
 ```
 
 Having this in your code, will show a box with your fields and it's values, such as
@@ -80,7 +82,7 @@ Enabling this property will instead make the debugger an absolute div which you 
 
 #### theme
 
-Because of the simplicity with [shiki](https://github.com/shikijs/shiki?tab=readme-ov-file) that this debugger is using for highlighting, you can also change the theme of your output.
+Thanks to the simplicity with [shiki](https://github.com/shikijs/shiki?tab=readme-ov-file) that this debugger is using for highlighting, you can also change the theme of your output.
 
 #### space
 
